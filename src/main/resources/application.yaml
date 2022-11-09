@@ -1,0 +1,11 @@
+
+server:
+    serverlet:
+        context-pat: /api
+
+app:
+    datasource:
+        jdbc-url: jdbc:postgresql://localhost:5432/studentadmin
+        username: postgres
+        password: Jamesbond123
+        pool-size: 30
