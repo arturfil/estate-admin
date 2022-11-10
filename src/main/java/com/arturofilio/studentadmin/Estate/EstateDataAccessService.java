@@ -42,4 +42,17 @@ public class EstateDataAccessService {
         };
     }
 
+    public int insertEstate(Estate estate, UUID estateId) {
+        String sql = 
+            "INSERT INTO estate (estate_id, address, squared_feet, rented, type) " + 
+            "VALUES (?, ?, ?, ?, ?)";
+        return jdbcTemplate.update(sql, 
+            estateId, 
+            estate.getAddress(),
+            estate.getSquaredFeet(),
+            estate.getRented(),
+            estate.getType().name()
+        );
+    }
+
 }

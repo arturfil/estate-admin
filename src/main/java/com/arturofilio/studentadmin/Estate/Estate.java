@@ -2,10 +2,17 @@ package com.arturofilio.studentadmin.Estate;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Estate {
     private final UUID estateId;
 
-    public Estate(UUID estateId, String address, EstateType type, int squaredFeet, boolean rented) {
+    public Estate(
+        @JsonProperty("estate_id") UUID estateId, 
+        @JsonProperty("address") String address, 
+        @JsonProperty("type") EstateType type, 
+        @JsonProperty("squared_feet") int squaredFeet, 
+        @JsonProperty("rented") boolean rented ) {
         this.estateId = estateId;
         this.address = address;
         this.type = type;
@@ -53,6 +60,13 @@ public class Estate {
 
     public void setRented(boolean rented) {
         this.rented = rented;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Estate {estateId=" + estateId + ", address=" + address + ", type=" + type + ", squaredFeet="
+                + squaredFeet + ", rented=" + rented + "}";
     }
 
 }
